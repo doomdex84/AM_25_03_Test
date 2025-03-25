@@ -29,14 +29,14 @@ public class Main {
             }
 
             if (cmd.equals("article write")) {
-                System.out.println("==게시글 작성==");
+//                System.out.println("==게시글 작성==");
                 int id = lastArticleId + 1;
-                String regDate = Util.getNowStr();
-                String updateDate = Util.getNowStr();
-                System.out.print("제목 : ");
-                String title = sc.nextLine().trim();
-                System.out.print("내용 : ");
-                String body = sc.nextLine().trim();
+//                String regDate = Util.getNowStr();
+//                String updateDate = Util.getNowStr();
+//                System.out.print("제목 : ");
+//                String title = sc.nextLine().trim();
+//                System.out.print("내용 : ");
+//                String body = sc.nextLine().trim();
 
                 Article article = new Article(id, regDate, updateDate, title, body);
                 articles.add(article);
