@@ -5,16 +5,19 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
+
+    static List<Article> articles = new ArrayList<>();
+
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
 
         System.out.println("==프로그램 시작==");
 
-        int lastArticleId = 0;
-        List<Article> articles = new ArrayList<>();
+        int lastArticleId = 3;
 
-        new makeTestData();
+
+        makeTestData();
 
         while (true) {
             System.out.print("명령어) ");
@@ -29,22 +32,20 @@ public class Main {
             }
 
             if (cmd.equals("article write")) {
-//                System.out.println("==게시글 작성==");
+                System.out.println("==게시글 작성==");
                 int id = lastArticleId + 1;
-//                String regDate = Util.getNowStr();
-//                String updateDate = Util.getNowStr();
-//                System.out.print("제목 : ");
-//                String title = sc.nextLine().trim();
-//                System.out.print("내용 : ");
-//                String body = sc.nextLine().trim();
+                String regDate = Util.getNowStr();
+                String updateDate = Util.getNowStr();
+                System.out.print("제목 : ");
+                String title = sc.nextLine().trim();
+                System.out.print("내용 : ");
+                String body = sc.nextLine().trim();
 
                 Article article = new Article(id, regDate, updateDate, title, body);
                 articles.add(article);
 
                 System.out.println(id + "번 글이 작성되었습니다");
                 lastArticleId++;
-
-
             } else if (cmd.equals("article list")) {
                 System.out.println("==게시글 목록==");
                 if (articles.size() == 0) {
@@ -144,6 +145,14 @@ public class Main {
 
         System.out.println("==프로그램 끝==");
         sc.close();
+    }
+
+    /**테스트 데이터 생성 함수**/
+    private static void makeTestData() {
+        System.out.println("==테스트 데이터 생성==");
+        articles.add(new Article(1, "2024-12-12 12:12:12", "2024-12-12 12:12:12", "제목1", "내용1"));
+        articles.add(new Article(2, Util.getNowStr(), Util.getNowStr(), "제목2", "내용2"));
+        articles.add(new Article(3, Util.getNowStr(), Util.getNowStr(), "제목3", "내용3"));
     }
 }
 
