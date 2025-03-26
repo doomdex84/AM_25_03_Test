@@ -2,9 +2,6 @@ package org.example.dto;
 
 public class Article extends Dto {
 
-
-
-
     private String updateDate;
     private String title;
     private String body;
